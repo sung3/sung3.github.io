@@ -28,7 +28,7 @@
 <meta property="og:description" content="向量点乘（内积）定义 $ \begin{bmatrix} x_1 \ y_1 \ z_1 \ \end{bmatrix} ·  \begin{bmatrix} x_2 \ y_2 \ z_2 \ \end{bmatrix} &#x3D;  x_1x_1 + y_1y_2 + z_1z_2 $ 几何解释 $\mathbf a · \mathbf b &#x3D; \begin{Vmatrix} \mathbf a \e">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-09T14:11:13.465Z">
-<meta property="article:modified_time" content="2021-03-09T14:43:35.422Z">
+<meta property="article:modified_time" content="2021-03-09T14:54:52.432Z">
 <meta property="article:author" content="Jia Gang">
 <meta name="twitter:card" content="summary">
 
@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-09 22:11:13 / Modified: 22:43:35" itemprop="dateCreated datePublished" datetime="2021-03-09T22:11:13+08:00">2021-03-09</time>
+              <time title="Created: 2021-03-09 22:11:13 / Modified: 22:54:52" itemprop="dateCreated datePublished" datetime="2021-03-09T22:11:13+08:00">2021-03-09</time>
             </span>
 
           
@@ -399,6 +399,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
