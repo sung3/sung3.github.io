@@ -147,6 +147,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/cinemachine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jia Gang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jia Gang's Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/10/cinemachine/" class="post-title-link" itemprop="url">Unity Cinemachine 介绍</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-10 19:13:30 / Modified: 19:14:16" itemprop="dateCreated datePublished" datetime="2021-03-10T19:13:30+08:00">2021-03-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>Cinemachine最核心组件是Cinemachine Virtual Camera</li>
+<li>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</li>
+<li>任意时间，每个Virual Camera都处于下列状态之一：<ul>
+<li>Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Cinemachine Brain控制一个虚拟相机混合到下一个虚拟相机的时候，两个虚拟相机都处于Live状态。</li>
+<li>Standby：待命状态 待命状态的虚拟相机不控制Unity相机，但是它每帧都会更新。</li>
+<li>disable：禁用状态 处于禁用状态的相机不会更新，不占用运行资源。想要禁用一个虚拟相机只需要禁用它所在的GameObject即可。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/09/3d-math/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -368,7 +436,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
