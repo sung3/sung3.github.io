@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Unity Cinemachine 介绍</title>
-    <url>/2021/03/10/cinemachine/</url>
-    <content><![CDATA[<ul>
-<li>Cinemachine最核心组件是Cinemachine Virtual Camera</li>
-<li>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</li>
-<li>任意时间，每个Virual Camera都处于下列状态之一：<ul>
-<li>Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Cinemachine Brain控制一个虚拟相机混合到下一个虚拟相机的时候，两个虚拟相机都处于Live状态。</li>
-<li>Standby：待命状态 待命状态的虚拟相机不控制Unity相机，但是它每帧都会更新。</li>
-<li>disable：禁用状态 处于禁用状态的相机不会更新，不占用运行资源。想要禁用一个虚拟相机只需要禁用它所在的GameObject即可。</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2021/03/09/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -35,5 +17,23 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Unity Cinemachine 介绍</title>
+    <url>/2021/03/10/cinemachine/</url>
+    <content><![CDATA[<ul>
+<li>Cinemachine最核心组件是Cinemachine Virtual Camera</li>
+<li>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</li>
+<li>任意时间，每个Virual Camera都处于下列状态之一：<ul>
+<li>Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Cinemachine Brain控制一个虚拟相机混合到下一个虚拟相机的时候，两个虚拟相机都处于Live状态。</li>
+<li>Standby：待命状态 待命状态的虚拟相机不控制Unity相机，但是它每帧都会更新。</li>
+<li>disable：禁用状态 处于禁用状态的相机不会更新，不占用运行资源。想要禁用一个虚拟相机只需要禁用它所在的GameObject即可。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
   </entry>
 </search>
