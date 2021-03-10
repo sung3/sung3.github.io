@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Unity Cinemachine 介绍</title>
+    <url>/2021/03/10/cinemachine/</url>
+    <content><![CDATA[<ul>
+<li>Cinemachine最核心组件是Cinemachine Virtual Camera</li>
+<li>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</li>
+<li>任意时间，每个Virual Camera都处于下列状态之一：<ul>
+<li>Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Cinemachine Brain控制一个虚拟相机混合到下一个虚拟相机的时候，两个虚拟相机都处于Live状态。</li>
+<li>Standby：待命状态 待命状态的虚拟相机不控制Unity相机，但是它每帧都会更新。</li>
+<li>disable：禁用状态 处于禁用状态的相机不会更新，不占用运行资源。想要禁用一个虚拟相机只需要禁用它所在的GameObject即可。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+  </entry>
+  <entry>
     <title>游戏开发3D数学基础</title>
     <url>/2021/03/09/3d-math/</url>
     <content><![CDATA[<h1 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h1><h2 id="点乘（内积）"><a href="#点乘（内积）" class="headerlink" title="点乘（内积）"></a>点乘（内积）</h2><p><strong>定义</strong></p>
@@ -35,24 +53,6 @@
 </ul>
 <p>三维正交矩阵与单位四元数、欧拉角是等价的。</p>
 <h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><h1 id="几何图元"><a href="#几何图元" class="headerlink" title="几何图元"></a>几何图元</h1><h1 id="几何检测"><a href="#几何检测" class="headerlink" title="几何检测"></a>几何检测</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-  </entry>
-  <entry>
-    <title>Unity Cinemachine 介绍</title>
-    <url>/2021/03/10/cinemachine/</url>
-    <content><![CDATA[<ul>
-<li>Cinemachine最核心组件是Cinemachine Virtual Camera</li>
-<li>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</li>
-<li>任意时间，每个Virual Camera都处于下列状态之一：<ul>
-<li>Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Cinemachine Brain控制一个虚拟相机混合到下一个虚拟相机的时候，两个虚拟相机都处于Live状态。</li>
-<li>Standby：待命状态 待命状态的虚拟相机不控制Unity相机，但是它每帧都会更新。</li>
-<li>disable：禁用状态 处于禁用状态的相机不会更新，不占用运行资源。想要禁用一个虚拟相机只需要禁用它所在的GameObject即可。</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
   </entry>
   <entry>
     <title>Hello World</title>
