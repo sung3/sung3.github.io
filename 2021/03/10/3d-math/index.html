@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Cinemachine最核心组件是Cinemachine Virtual Camera 一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个 任意时间，每个Virual Camera都处于下列状态之一： Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Ci">
+  <meta name="description" content="向量点乘（内积）定义 $ \begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ \end{bmatrix} ·  \begin{bmatrix} x_2 \\ y_2 \\ z_2 \\ \end{bmatrix} &#x3D;  x_1x_1 + y_1y_2 + z_1z_2 $ 几何解释 $\mathbf a · \mathbf b &#x3D; \begin{Vmatrix} \mathb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity Cinemachine 介绍">
-<meta property="og:url" content="http://example.com/2021/03/10/cinemachine/index.html">
+<meta property="og:title" content="游戏开发3D数学基础">
+<meta property="og:url" content="http://example.com/2021/03/10/3d-math/index.html">
 <meta property="og:site_name" content="Jia Gang&#39;s Blogs">
-<meta property="og:description" content="Cinemachine最核心组件是Cinemachine Virtual Camera 一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个 任意时间，每个Virual Camera都处于下列状态之一： Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Ci">
+<meta property="og:description" content="向量点乘（内积）定义 $ \begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ \end{bmatrix} ·  \begin{bmatrix} x_2 \\ y_2 \\ z_2 \\ \end{bmatrix} &#x3D;  x_1x_1 + y_1y_2 + z_1z_2 $ 几何解释 $\mathbf a · \mathbf b &#x3D; \begin{Vmatrix} \mathb">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-10T11:13:30.049Z">
-<meta property="article:modified_time" content="2021-03-10T11:29:15.193Z">
+<meta property="article:published_time" content="2021-03-10T12:25:25.546Z">
+<meta property="article:modified_time" content="2021-03-09T15:01:17.875Z">
 <meta property="article:author" content="Jia Gang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/03/10/cinemachine/">
+<link rel="canonical" href="http://example.com/2021/03/10/3d-math/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Unity Cinemachine 介绍 | Jia Gang's Blogs</title>
+  <title>游戏开发3D数学基础 | Jia Gang's Blogs</title>
   
 
 
@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/cinemachine/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/3d-math/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -194,7 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Unity Cinemachine 介绍
+          游戏开发3D数学基础
         </h1>
 
         <div class="post-meta">
@@ -203,19 +203,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-10 19:13:30 / Modified: 19:29:15" itemprop="dateCreated datePublished" datetime="2021-03-10T19:13:30+08:00">2021-03-10</time>
+              <time title="Created: 2021-03-10 20:25:25" itemprop="dateCreated datePublished" datetime="2021-03-10T20:25:25+08:00">2021-03-10</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-            </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-09 23:01:17" itemprop="dateModified" datetime="2021-03-09T23:01:17+08:00">2021-03-09</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -235,17 +232,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ul>
-<li>Cinemachine最核心组件是Cinemachine Virtual Camera</li>
-<li>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</li>
-<li>任意时间，每个Virual Camera都处于下列状态之一：<ul>
-<li>Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Cinemachine Brain控制一个虚拟相机混合到下一个虚拟相机的时候，两个虚拟相机都处于Live状态。</li>
-<li>Standby：待命状态 待命状态的虚拟相机不控制Unity相机，但是它每帧都会更新。</li>
-<li>disable：禁用状态 处于禁用状态的相机不会更新，不占用运行资源。想要禁用一个虚拟相机只需要禁用它所在的GameObject即可。</li>
+        <h1 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h1><h2 id="点乘（内积）"><a href="#点乘（内积）" class="headerlink" title="点乘（内积）"></a>点乘（内积）</h2><p><strong>定义</strong></p>
+<p>$ \begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ \end{bmatrix} ·<br>  \begin{bmatrix} x_2 \\ y_2 \\ z_2 \\ \end{bmatrix} =<br>  x_1x_1 + y_1y_2 + z_1z_2 $</p>
+<p><strong>几何解释</strong></p>
+<p>$\mathbf a · \mathbf b = \begin{Vmatrix} \mathbf a \end{Vmatrix}\begin{Vmatrix} \mathbf b \end{Vmatrix} cos\theta$</p>
+<p><strong>游戏中的应用</strong></p>
+<ul>
+<li>判断目标是否在自己的身后</li>
+<li>可以计算两个向量的的夹角<h2 id="叉乘（叉积）"><a href="#叉乘（叉积）" class="headerlink" title="叉乘（叉积）"></a>叉乘（叉积）</h2></li>
 </ul>
-</li>
+<p><strong>定义</strong></p>
+<p>$ \begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ \end{bmatrix} ×<br>  \begin{bmatrix} x_2 \\ y_2 \\ z_2 \\ \end{bmatrix} =<br>  \begin{bmatrix}\mathbf i &amp; \mathbf j &amp; \mathbf k \\ x_1 &amp; y_1 &amp; z_1\\ x_2 &amp; y_2 &amp; z_2\\ \end{bmatrix} =<br>  \begin{bmatrix} y_1z_2 - z_1y_2 \\ z_1x_2 - x_1z_2 \\ x_1y_2 - y_1x_2 \\ \end{bmatrix} $</p>
+<p><strong>几何解释</strong></p>
+<p>$\mathbf a × \mathbf b$的结果是一个向量，并且与$\mathbf a$、$\mathbf b$都垂直。在左手坐标系中（Unity使用的是左手坐标系），如果$\mathbf a$、$\mathbf b$是顺时针，则在$\mathbf a × \mathbf b$指向自己；如果$\mathbf a$、$\mathbf b$是逆2时针，则在$\mathbf a × \mathbf b$远离自己。</p>
+<p>$ \begin{Vmatrix} \mathbf a × \mathbf b \end{Vmatrix} =<br>\begin{Vmatrix} \mathbf a \end{Vmatrix}  \begin{Vmatrix} \mathbf b \end{Vmatrix}  sin\theta<br>   $</p>
+<p><strong>游戏中的应用</strong></p>
+<ul>
+<li>计算平面的法线</li>
+<li>计算平行四边形或者三角形的面积</li>
+<li>判断目标在自己的左边还是右边</li>
 </ul>
-
+<h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><p><strong>行列式</strong></p>
+<p>$\begin{vmatrix} m_{11} &amp; m_{12} &amp; m_{13} \\<br>                 m_{21} &amp; m_{22} &amp; m_{23} \\<br>                 m_{31} &amp; m_{32} &amp; m_{33} \end{vmatrix} =<br>                 m_{11}m_{22}m_{33} +  m_{12}m_{23}m_{31} +  m_{21}m_{32}m_{13} -  m_{13}m_{22}m_{31} -  m_{12}m_{21}m_{33} -  m_{23}m_{32}m_{11}$</p>
+<p><strong>行列式的几何意义</strong></p>
+<p>行列式等于以变换后的基向量为三遍的平行六面体的有符号体积。如果变换使得平行六面体“由里向外翻转”，则行列式为负数。</p>
+<p><strong>正交矩阵</strong></p>
+<p>正交矩阵的重要性质是，矩阵的转置与矩阵的逆相等。若一个矩阵是正交的，它必须满足下列条件：</p>
+<ul>
+<li>矩阵的每一行都是单位向量</li>
+<li>矩阵的所有行都相互垂直</li>
+</ul>
+<p>三维正交矩阵与单位四元数、欧拉角是等价的。</p>
+<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><h1 id="几何图元"><a href="#几何图元" class="headerlink" title="几何图元"></a>几何图元</h1><h1 id="几何检测"><a href="#几何检测" class="headerlink" title="几何检测"></a>几何检测</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1>
     </div>
 
     
@@ -260,13 +278,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/09/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2021/03/10/cinemachine/" rel="prev" title="Unity Cinemachine 介绍">
+      <i class="fa fa-chevron-left"></i> Unity Cinemachine 介绍
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/10/3d-math/" rel="next" title="游戏开发3D数学基础">
-      游戏开发3D数学基础 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -325,6 +340,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">向量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E4%B9%98%EF%BC%88%E5%86%85%E7%A7%AF%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">点乘（内积）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%89%E4%B9%98%EF%BC%88%E5%8F%89%E7%A7%AF%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">叉乘（叉积）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5"><span class="nav-number">2.</span> <span class="nav-text">矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">四元数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83"><span class="nav-number">4.</span> <span class="nav-text">几何图元</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E6%A3%80%E6%B5%8B"><span class="nav-number">5.</span> <span class="nav-text">几何检测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text"></span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,6 +473,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
