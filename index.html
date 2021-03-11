@@ -306,10 +306,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-10 19:13:30 / Modified: 19:29:15" itemprop="dateCreated datePublished" datetime="2021-03-10T19:13:30+08:00">2021-03-10</time>
+              <time title="Created: 2021-03-10 19:13:30" itemprop="dateCreated datePublished" datetime="2021-03-10T19:13:30+08:00">2021-03-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 15:56:53" itemprop="dateModified" datetime="2021-03-11T15:56:53+08:00">2021-03-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -331,13 +337,81 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ul>
-<li>Cinemachine最核心组件是Cinemachine Virtual Camera</li>
-<li>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</li>
-<li>任意时间，每个Virual Camera都处于下列状态之一：<ul>
+          <h1 id="Cinemachine介绍"><a href="#Cinemachine介绍" class="headerlink" title="Cinemachine介绍"></a>Cinemachine介绍</h1><ul>
+<li><p>Cinemachine最核心组件是Cinemachine Virtual Camera</p>
+</li>
+<li><p>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</p>
+</li>
+<li><p>任意时间，每个Virual Camera都处于下列状态之一：</p>
+<ul>
 <li>Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状态的虚拟相机。特例是在Cinemachine Brain控制一个虚拟相机混合到下一个虚拟相机的时候，两个虚拟相机都处于Live状态。</li>
 <li>Standby：待命状态 待命状态的虚拟相机不控制Unity相机，但是它每帧都会更新。</li>
-<li>disable：禁用状态 处于禁用状态的相机不会更新，不占用运行资源。想要禁用一个虚拟相机只需要禁用它所在的GameObject即可。</li>
+<li>disable：禁用状态 处于禁用状态的相机不会更新，不占用运行资源。想要禁用一个虚拟相机只需要禁用它所在的GameObject即可。<h1 id="Virtual-Camera"><a href="#Virtual-Camera" class="headerlink" title="Virtual Camera"></a>Virtual Camera</h1></li>
+</ul>
+</li>
+<li><p>Save During Play：虚拟相机在属性在运行时保存下来</p>
+</li>
+<li><p>Priority：虚拟相机的优先级，Cinemachine Brain会根据优先级从所有的激活的虚拟相机中选择虚拟相机</p>
+</li>
+<li><p>Follow：跟随目标。Body属性基于这个目标物体更新Unity相机位置</p>
+</li>
+<li><p>Look At：Aim属性基于这个目标更新Unity相机的旋转</p>
+</li>
+<li><p>Standby Update</p>
+<ul>
+<li>Never</li>
+<li>Always</li>
+<li>Round Robin：循环更新虚拟相机，一帧更新一个</li>
+</ul>
+</li>
+<li><p>Lens</p>
+<ul>
+<li>Field Of View：相机FOV</li>
+<li>Near Clip Plane：相机近平面</li>
+<li>Far Clip Plane：相机远平面</li>
+</ul>
+</li>
+<li><p>Transitions</p>
+<ul>
+<li>Blend Hint<ul>
+<li>None：线性混合</li>
+<li>Spherical Position：根据Look At的物体球面旋转混合</li>
+<li>Cylindrical Position：根据Look At的物体柱面旋转混合（水平方向圆弧，垂直方向线性）</li>
+<li>Screen Space Aim When Target：在屏幕空间瞄准目标</li>
+</ul>
+</li>
+<li>Inherit Position：变成活动相机时，从上一个相机继承位置</li>
+</ul>
+</li>
+<li><p>Body</p>
+<ul>
+<li>Do Nothing：不移动虚拟相机</li>
+<li>Framing Transposer：在屏幕空间，保持相机和跟随目标的相对位置，可以设置缓动。</li>
+<li>Hard Lock to Target：虚拟相机和跟随目标使用相同位置。</li>
+<li>Orbital Transposer：相机和跟随目标的相对位置是可变的，还能接受用户的输入。常见于玩家控制的相机。</li>
+<li>Tracked Dolly：相机沿着预先设置的轨道移动。</li>
+<li>Transposer：相机和跟随目标的相对位置固定，可以设置缓动。</li>
+</ul>
+</li>
+<li><p>Aim</p>
+<ul>
+<li>Composer：将目标保持在相机镜头内，可以设置多种约束<ul>
+<li>Tracked Object Offset：想要Look At的点与GameObject中心点的offset，例如向往相机Look At的地方是人物的眼睛</li>
+<li>Lookahead Time</li>
+</ul>
+</li>
+<li>Group Composer：将多个目标保持在相机镜头内</li>
+<li>Do Nothing：不旋转相机</li>
+<li>POV：根据用户的输入旋转相机</li>
+<li>Same As Follow Target：将相机的旋转和跟随目标的旋转同步</li>
+<li>Hard Look At：将Look At目标固定在镜头中心的位置。</li>
+</ul>
+</li>
+<li><p>Noise：模拟相机的晃动。Cinemachine自带了一个Basic Multi Channel Perlin算法，可以给虚拟相机的运动添加柏林噪声</p>
+<ul>
+<li>Noise Profile：噪声的配置文件，Cinemachine中自带了几种profile配置，也可以自定义</li>
+<li>Amplitude Gain：振幅增益，值为1时使用Noise Profile中定义的振幅，值为0的时候表示禁用噪声，因此可以通过控制Amplitude Gain控制噪声的增强与减弱</li>
+<li>Frequency Gain：频率增益，可以控制噪声变快或者变慢</li>
 </ul>
 </li>
 </ul>
