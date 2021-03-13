@@ -20,19 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Cinemachine介绍 Cinemachine最核心组件是Cinemachine Virtual Camera 一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个 任意时间，每个Virual Camera都处于下列状态之一： Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状">
+  <meta name="description" content="Unity Cinemachine Documentation Cinemachine介 Cinemachine最核心组件是Cinemachine Virtual Camera 一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个 任意时间，每个Virual Camera都处于下列状态之一： Live：活跃状态 活跃状">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity Cinemachine 介绍">
 <meta property="og:url" content="http://example.com/2021/03/10/cinemachine/index.html">
 <meta property="og:site_name" content="佳港的博客">
-<meta property="og:description" content="Cinemachine介绍 Cinemachine最核心组件是Cinemachine Virtual Camera 一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个 任意时间，每个Virual Camera都处于下列状态之一： Live：活跃状态 活跃状态的虚拟相机会控制Unity相机，一般情况下只有一个Live状">
+<meta property="og:description" content="Unity Cinemachine Documentation Cinemachine介 Cinemachine最核心组件是Cinemachine Virtual Camera 一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个 任意时间，每个Virual Camera都处于下列状态之一： Live：活跃状态 活跃状">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/img1.png">
 <meta property="article:published_time" content="2021-03-10T11:13:30.049Z">
-<meta property="article:modified_time" content="2021-03-11T08:06:04.471Z">
+<meta property="article:modified_time" content="2021-03-13T06:10:45.583Z">
 <meta property="article:author" content="佳港">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/img1.png">
 
 <link rel="canonical" href="http://example.com/2021/03/10/cinemachine/">
 
@@ -223,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-11 16:06:04" itemprop="dateModified" datetime="2021-03-11T16:06:04+08:00">2021-03-11</time>
+                <time title="修改时间：2021-03-13 14:10:45" itemprop="dateModified" datetime="2021-03-13T14:10:45+08:00">2021-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,7 +251,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Cinemachine介绍"><a href="#Cinemachine介绍" class="headerlink" title="Cinemachine介绍"></a>Cinemachine介绍</h1><ul>
+        <p>Unity Cinemachine Documentation</p>
+<h1 id="Cinemachine介"><a href="#Cinemachine介" class="headerlink" title="Cinemachine介"></a>Cinemachine介</h1><ul>
 <li>Cinemachine最核心组件是Cinemachine Virtual Camera</li>
 <li>一般情况下只有一个Camera并且上面需要有CinemachineBrain组件，Virtual Camera是虚拟相机，可以有多个</li>
 <li>任意时间，每个Virual Camera都处于下列状态之一：<ul>
@@ -263,61 +262,225 @@
 </ul>
 </li>
 </ul>
-<h1 id="Virtual-Camera"><a href="#Virtual-Camera" class="headerlink" title="Virtual Camera"></a>Virtual Camera</h1><p><img src="/images/img1.png" alt="Virtual Camera"></p>
+<h1 id="CinemachineBrain"><a href="#CinemachineBrain" class="headerlink" title="CinemachineBrain"></a>CinemachineBrain</h1><p>CinemachineBrain组件监控场景中所有的激活的虚拟相机，会选择控制Unity相机的虚拟相机炳辉控制当前虚拟相机到下一个的过渡。</p>
 <ul>
+<li>Live Camera：显示当前激活的虚拟相机（只读）</li>
+<li>Live Blend：显示当前的虚拟相机的过渡（只读）</li>
+<li>Show Debug Text：（没什么用参数）</li>
+<li>Show Camera Frustum：显示相机视锥（没什么用参数）</li>
+<li>Ignore Time Scale：</li>
+<li>World Up Override</li>
+<li>Update Method：更新方式<ul>
+<li>Fixed Update</li>
+<li>LateUpdate：（推荐使用这个）</li>
+<li>Smart Update：（默认选项）</li>
+</ul>
+</li>
+<li>Default Blend：没有明确指出两个虚拟相机融合方式的时候的默认方式<ul>
+<li>Cut：瞬切</li>
+<li>Ease In Out：（默认选项）曲线进入曲线退出</li>
+<li>Ease In</li>
+<li>Ease Out</li>
+<li>Hard In</li>
+<li>Hard Out</li>
+<li>Linear</li>
+<li>Custom</li>
+</ul>
+</li>
+<li>Custom Blends：自定义设置场景中特定的相机之间的融合过渡</li>
+<li>Events<ul>
+<li>Camera Cut Event：一个虚拟相机以Cut的方式激活的回调事件</li>
+<li>Camera Activated Event：一个虚拟相机以Blend的方式激活的回调事件</li>
+</ul>
+</li>
+</ul>
+<h1 id="Cinemachine-Virtual-Camera"><a href="#Cinemachine-Virtual-Camera" class="headerlink" title="Cinemachine Virtual Camera"></a>Cinemachine Virtual Camera</h1><ul>
 <li>Save During Play：虚拟相机在属性在运行时保存下来</li>
 <li>Priority：虚拟相机的优先级，Cinemachine Brain会根据优先级从所有的激活的虚拟相机中选择虚拟相机</li>
 <li>Follow：跟随目标。Body属性基于这个目标物体更新Unity相机位置</li>
 <li>Look At：Aim属性基于这个目标更新Unity相机的旋转</li>
-<li>Standby Update<ul>
-<li>Never</li>
-<li>Always</li>
+<li>Standby Update：相机处于待机状态的更新方式<ul>
+<li>Never：不更新</li>
+<li>Always：一直保持更新</li>
 <li>Round Robin：循环更新虚拟相机，一帧更新一个</li>
 </ul>
 </li>
-<li>Lens<ul>
+<li>Lens：相机视锥的参数设置<ul>
 <li>Field Of View：相机FOV</li>
 <li>Near Clip Plane：相机近平面</li>
 <li>Far Clip Plane：相机远平面</li>
 </ul>
 </li>
 <li>Transitions<ul>
-<li>Blend Hint<ul>
+<li>Blend Hint：虚拟相机切换的时候的位置的Blend的风格<ul>
 <li>None：线性混合</li>
-<li>Spherical Position：根据Look At的物体球面旋转混合</li>
-<li>Cylindrical Position：根据Look At的物体柱面旋转混合（水平方向圆弧，垂直方向线性）</li>
+<li>Spherical Position：如果有Look At的目标，在Blend的时候根据目标球面旋转混合</li>
+<li>Cylindrical Position：如果有Look At的目标，在Blend的时候根据目标柱面旋转混合（水平方向圆弧，垂直方向线性）</li>
 <li>Screen Space Aim When Target：在屏幕空间瞄准目标</li>
 </ul>
 </li>
 <li>Inherit Position：变成活动相机时，从上一个相机继承位置</li>
 </ul>
 </li>
-<li>Body<ul>
-<li>Do Nothing：不移动虚拟相机</li>
-<li>Framing Transposer：在屏幕空间，保持相机和跟随目标的相对位置，可以设置缓动。</li>
-<li>Hard Lock to Target：虚拟相机和跟随目标使用相同位置。</li>
-<li>Orbital Transposer：相机和跟随目标的相对位置是可变的，还能接受用户的输入。常见于玩家控制的相机。</li>
-<li>Tracked Dolly：相机沿着预先设置的轨道移动。</li>
-<li>Transposer：相机和跟随目标的相对位置固定，可以设置缓动。</li>
+</ul>
+<h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><h3 id="Do-Nothing（固定相机）"><a href="#Do-Nothing（固定相机）" class="headerlink" title="Do Nothing（固定相机）"></a>Do Nothing（固定相机）</h3><p>没有设置Follow Target的时候选择的模式。<br>Framing Transposer（屏幕空间跟随相机）<br>在屏幕空间，保持相机和跟随目标的相对位置。使用这个模式的时候，Look At必须设置None。</p>
+<ul>
+<li>Lookahead Time：减小这个值可以降低相机的抖动</li>
+<li>Lookahead Smoothing</li>
+<li>Lookahead Ignore Y</li>
+<li>X/Y/Z Damping：X/Y/Z轴方向的阻尼</li>
+</ul>
+<p>在最中间区域的时候是不会触发相机跟随，跟随的目标是不会出现在最边缘的红色区域。</p>
+<ul>
+<li><p>Screen X/Screen Y/Dead Zone Height/Dead Zone Width/Dead Zone Depth/Soft Zone Height/Soft Zone Width/Bias X/Bias Y：调整缓冲区域与无效区域在屏幕空间的位置与大小</p>
+</li>
+<li><p>Unlimited Soft Zone：如果勾选缓冲区域无限大<br>Hard Lock to Target（同位置相机）<br>虚拟相机和跟随目标使用相同位置（基本上没用的模式）。<br>Orbital Transposer（可控圆轨相机）</p>
+</li>
+<li><p>可以根据用户的输入改变虚拟相机和跟随目标的Offset</p>
+</li>
+<li><p>引入了Follow Target的朝向的概念</p>
+</li>
+<li><p>Heading：如何定义Follow Target的朝向</p>
+<ul>
+<li><p>Definition</p>
+<ul>
+<li>Position Delta：根据计算</li>
+<li>Velocity：速度方向</li>
+<li>Target Forward：Follow Target的forward方向（默认选项）</li>
+<li>World Forward：Vector3.forward</li>
 </ul>
 </li>
-<li>Aim<ul>
-<li>Composer：将目标保持在相机镜头内，可以设置多种约束<ul>
-<li>Tracked Object Offset：想要Look At的点与GameObject中心点的offset，例如向往相机Look At的地方是人物的眼睛</li>
+<li><p>Bias：偏移的角度</p>
+</li>
+</ul>
+</li>
+<li><p>Recenter To Target Heading：在没有用户输入的时候，是否让相机回位</p>
+<ul>
+<li>Enabled：如果勾选，在没有用户输入的时候虚拟相机会自动回位</li>
+<li>Wait Time：如果勾选Enabled，等待回位的时间</li>
+<li>Recentering Time：如果勾选Enabled</li>
+</ul>
+</li>
+<li><p>X Axis：接受用户输入，控制相机</p>
+<ul>
+<li>Value：x轴的角度</li>
+<li>Value Range：x轴的角度范围</li>
+<li>Max Speed：最大速度</li>
+<li>Accel Time：加速事件</li>
+<li>Decel Time：减速事件</li>
+<li>Input Axis Name：用户输入参数源</li>
+<li>Input Axis Value：用户输入参数值</li>
+<li>Invert：反向</li>
+</ul>
+</li>
+</ul>
+<h3 id="Tracked-Dolly（轨道相机）"><a href="#Tracked-Dolly（轨道相机）" class="headerlink" title="Tracked Dolly（轨道相机）"></a>Tracked Dolly（轨道相机）</h3><ul>
+<li>Path：CinemachinePath设置的轨道</li>
+<li>Path Position：参考Position Units的意义</li>
+<li>Position Units<ul>
+<li>Path Units<br>Path Position范围是0到轨道点数-1，0表示在第一个轨道点，1表示第二个轨道点</li>
+<li>Distance<br>Path Position表示的是到轨道起点的距离</li>
+<li>Normalized<br>Path Position的范围是0到1，0表示轨道起点，1表示轨道终点</li>
+</ul>
+</li>
+<li>Path Offset：相机与轨道上点上位置的Offset</li>
+<li>X/Y/Z Damping：X/Y/Z轴的移动的时候的阻尼</li>
+<li>Camera Up：相机up方向的设置<ul>
+<li>Default：不修改虚拟相机的up方向</li>
+<li>Path：使用Path路径点的up方向</li>
+<li>Path No Roll：不带翻滚</li>
+<li>Follow Target：使用跟随目标的up方向</li>
+<li>Follow Target No Roll：不带翻滚</li>
+</ul>
+</li>
+<li>Auto Dolly：自动推镜<ul>
+<li>Enabled：如果勾选了，相机会自动移动到距离Follow Target最近的轨道点上</li>
+<li>Position Offset：</li>
+<li>Search Radius：</li>
+<li>Search Resolution：</li>
+</ul>
+</li>
+</ul>
+<h3 id="Transposer（跟随相机）"><a href="#Transposer（跟随相机）" class="headerlink" title="Transposer（跟随相机）"></a>Transposer（跟随相机）</h3><p>虚拟相机和跟随目标的相对位置固定。</p>
+<ul>
+<li><p>Binding Mode：虚拟相机与跟随目标的方式</p>
+<ul>
+<li>Lock To Target On Assign：在设置Follow Target或者虚拟相机被激活的时候，设置Follow Offset值为两者之间的Offset</li>
+<li>Lock To Target With World Up：不考虑Follow Target的x、z轴方向的旋转，经典的第三人称视角（默认选项）</li>
+<li>Lock To Target No Roll：相机的roll始终为0</li>
+<li>Lock To Target：考虑Follow Target的x、y、z轴方向的旋转</li>
+<li>World Space：不考虑Follow Target的x、y、z轴方向的旋转</li>
+<li>Simple Follow With World Up：y轴方向的Offset是锁定的，x、z轴方向的Offset不是锁定的，可以用来模拟记着跟随Follow Target</li>
+</ul>
+</li>
+<li><p>Follow Offset：虚拟相机与跟随目标之前位置的Offset</p>
+</li>
+<li><p>X/Y/Z Damping：位移阻尼参数</p>
+</li>
+<li><p>Pitch/Yaw/Roll Damping：旋转阻尼参数</p>
+<h2 id="Aim"><a href="#Aim" class="headerlink" title="Aim"></a>Aim</h2><h3 id="Do-Nothing"><a href="#Do-Nothing" class="headerlink" title="Do Nothing"></a>Do Nothing</h3><p>不旋转相机</p>
+<h3 id="Composer"><a href="#Composer" class="headerlink" title="Composer"></a>Composer</h3><p>将目标保持在相机镜头内，可以设置多种约束</p>
+</li>
+<li><p>Tracked Object Offset：想要Look At的点与GameObject中心点的offset，例如向往相机Look At的地方是人物的眼睛</p>
+</li>
+<li><p>提前预测：根据目标的移动提前调整相机旋转</p>
+<ul>
 <li>Lookahead Time</li>
+<li>Lookahead Smoothing</li>
+<li>Lookahead Ignore Y</li>
 </ul>
 </li>
-<li>Group Composer：将多个目标保持在相机镜头内</li>
-<li>Do Nothing：不旋转相机</li>
-<li>POV：根据用户的输入旋转相机</li>
-<li>Same As Follow Target：将相机的旋转和跟随目标的旋转同步</li>
-<li>Hard Look At：将Look At目标固定在镜头中心的位置。</li>
-</ul>
+<li><p>Horizontal Damping/Vertical Damping：水平/垂直方向的阻尼</p>
 </li>
-<li>Noise：模拟相机的晃动。Cinemachine自带了一个Basic Multi Channel Perlin算法，可以给虚拟相机的运动添加柏林噪声<ul>
+<li><p>Screen X/Screen Y/Dead Zone Height/Dead Zone Width/Dead Zone Depth/Soft Zone Height/Soft Zone Width/Bias X/Bias Y：调整缓冲区域与无效区域在屏幕空间的位置与大小</p>
+<h3 id="Group-Composer"><a href="#Group-Composer" class="headerlink" title="Group Composer"></a>Group Composer</h3><p>将多个目标保持在相机镜头内，Look At的参数需要是CinemachineTargetGroup。</p>
+<h3 id="POV"><a href="#POV" class="headerlink" title="POV"></a>POV</h3><p>根据用户的输入旋转相机</p>
+</li>
+<li><p>Vertical Axis：垂直方向的参数输入</p>
+</li>
+<li><p>Vertical Recentering：没有垂直方向的参数是否回位</p>
+</li>
+<li><p>Horizontal Axis：水平方向的参数输入</p>
+</li>
+<li><p>Horizontal Recentering：没有水平方向的参数是否回位</p>
+<h3 id="Same-As-Follow-Target"><a href="#Same-As-Follow-Target" class="headerlink" title="Same As Follow Target"></a>Same As Follow Target</h3><p>将相机的旋转和跟随目标的旋转同步，需要设置Follow Target。</p>
+<h3 id="Hard-Look-At"><a href="#Hard-Look-At" class="headerlink" title="Hard Look At"></a>Hard Look At</h3><p>将Look At目标固定在镜头中心的位置。</p>
+</li>
+</ul>
+<h2 id="Noise"><a href="#Noise" class="headerlink" title="Noise"></a>Noise</h2><p>模拟相机的晃动。Cinemachine自带了一个Basic Multi Channel Perlin算法，可以给虚拟相机的运动添加柏林噪声</p>
+<ul>
 <li>Noise Profile：噪声的配置文件，Cinemachine中自带了几种profile配置，也可以自定义</li>
 <li>Amplitude Gain：振幅增益，值为1时使用Noise Profile中定义的振幅，值为0的时候表示禁用噪声，因此可以通过控制Amplitude Gain控制噪声的增强与减弱</li>
 <li>Frequency Gain：频率增益，可以控制噪声变快或者变慢</li>
+</ul>
+<h1 id="CinemachinePath（轨道）"><a href="#CinemachinePath（轨道）" class="headerlink" title="CinemachinePath（轨道）"></a>CinemachinePath（轨道）</h1><p>通过CinemachinePath组件编辑轨道。</p>
+<ul>
+<li>Resolution：两个轨道点之间采样的数量，值越大，轨道越平滑</li>
+<li>Appearance：Gizmos中的轨道显示参数（没什么用参数）</li>
+<li>Looped：如果勾上会自动连接轨道的首尾轨道点</li>
+<li>Prefer Tangent Drag：如果勾选，当轨道切线点与轨道点重合之后，在Scene窗口拖动的时候优先选择的的是切线点（没什么用参数）</li>
+<li>Path Details：若干轨道点</li>
+</ul>
+<h1 id="CinemachineTargetGroup（目标组）"><a href="#CinemachineTargetGroup（目标组）" class="headerlink" title="CinemachineTargetGroup（目标组）"></a>CinemachineTargetGroup（目标组）</h1><ul>
+<li>Position Mode<ul>
+<li>Group Center：AABB的中心</li>
+<li>Group Average：加权平均</li>
+</ul>
+</li>
+<li>Rotation Mode<ul>
+<li>Manual：transform的旋转</li>
+<li>Group Average：加权平均</li>
+</ul>
+</li>
+<li>Update Method<ul>
+<li>Update</li>
+<li>Fixed Update</li>
+<li>Late Update：推荐设置</li>
+</ul>
+</li>
+<li>Target<ul>
+<li>Weight：目标的权重</li>
+<li>Radius：目标的半径</li>
 </ul>
 </li>
 </ul>
@@ -401,7 +564,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cinemachine%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Cinemachine介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Virtual-Camera"><span class="nav-number">2.</span> <span class="nav-text">Virtual Camera</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cinemachine%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Cinemachine介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CinemachineBrain"><span class="nav-number">2.</span> <span class="nav-text">CinemachineBrain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cinemachine-Virtual-Camera"><span class="nav-number">3.</span> <span class="nav-text">Cinemachine Virtual Camera</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Body"><span class="nav-number">3.1.</span> <span class="nav-text">Body</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-Nothing%EF%BC%88%E5%9B%BA%E5%AE%9A%E7%9B%B8%E6%9C%BA%EF%BC%89"><span class="nav-number">3.1.1.</span> <span class="nav-text">Do Nothing（固定相机）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tracked-Dolly%EF%BC%88%E8%BD%A8%E9%81%93%E7%9B%B8%E6%9C%BA%EF%BC%89"><span class="nav-number">3.1.2.</span> <span class="nav-text">Tracked Dolly（轨道相机）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transposer%EF%BC%88%E8%B7%9F%E9%9A%8F%E7%9B%B8%E6%9C%BA%EF%BC%89"><span class="nav-number">3.1.3.</span> <span class="nav-text">Transposer（跟随相机）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Aim"><span class="nav-number">3.2.</span> <span class="nav-text">Aim</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Do-Nothing"><span class="nav-number">3.2.1.</span> <span class="nav-text">Do Nothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Composer"><span class="nav-number">3.2.2.</span> <span class="nav-text">Composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Group-Composer"><span class="nav-number">3.2.3.</span> <span class="nav-text">Group Composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POV"><span class="nav-number">3.2.4.</span> <span class="nav-text">POV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Same-As-Follow-Target"><span class="nav-number">3.2.5.</span> <span class="nav-text">Same As Follow Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hard-Look-At"><span class="nav-number">3.2.6.</span> <span class="nav-text">Hard Look At</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noise"><span class="nav-number">3.3.</span> <span class="nav-text">Noise</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CinemachinePath%EF%BC%88%E8%BD%A8%E9%81%93%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">CinemachinePath（轨道）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CinemachineTargetGroup%EF%BC%88%E7%9B%AE%E6%A0%87%E7%BB%84%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">CinemachineTargetGroup（目标组）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
